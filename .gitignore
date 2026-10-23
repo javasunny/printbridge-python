@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+config.local.*
+
+# Print documents, runtime state and third-party binaries
+runtime/
+uploads/
+logs/
+*.log
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.exe
+*.msi
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+start-windows.local.ps1

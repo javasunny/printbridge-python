@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>纸间 · 局域网打印台</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="masthead"><a class="wordmark" href="/">纸间<span>PRINT DESK</span></a><span class="connection" id="connection">尚未连接</span></header>
+    <section class="intro"><p class="eyebrow">TOSHIBA e-STUDIO2823AM</p><h1>让文件，落到纸上。</h1><p>上传一份 PDF，由局域网内的 Windows 电脑完成打印。</p></section>
+    <section class="access" aria-label="连接服务">
+      <form id="connect-form"><label for="token">访问令牌</label><div class="access-input"><input id="token" type="password" autocomplete="off" placeholder="输入服务端配置的访问令牌" required><button id="connect" type="submit">连接服务</button></div></form>
+      <p>连接成功后，此浏览器将长期记住令牌，刷新或重新打开时自动连接。</p>
+      <button id="logout" class="text-button" type="button" hidden>退出并清除令牌</button>
+    </section>
+    <div class="workspace">
+      <section class="print-panel"><div class="section-heading"><h2><span>01</span> 新建打印</h2><span class="tag">PDF · A4</span></div>
+        <form id="print-form">
+          <fieldset id="print-fields" disabled>
+            <label class="file-picker" for="file"><span class="paper-icon" aria-hidden="true">↥</span><strong id="file-name">选择 PDF 文件</strong><span id="file-hint">点击选择，支持 PDF 格式</span><input type="file" id="file" accept=".pdf,application/pdf" required></label>
+            <div class="options"><div><label for="copies">打印份数</label><input type="number" id="copies" min="1" max="99" value="1" required></div><div><label for="sides">打印方式</label><select id="sides"><option value="simplex">单面</option><option value="duplexlong">双面 · 长边翻页</option><option value="duplexshort">双面 · 短边翻页</option></select></div></div>
+            <p class="paper-note">纸张固定为 A4；双面效果取决于打印机及驱动设置。</p>
+          </fieldset>
+          <button id="submit" class="primary" type="submit" disabled>提交打印 <span aria-hidden="true">↗</span></button>
+          <button id="discard" class="text-button" type="button" hidden>放弃本次重试</button>
+        </form>
+        <p id="feedback" class="feedback" role="status" aria-live="polite">连接服务后即可提交。</p>
+      </section>
+      <section class="jobs-panel" aria-labelledby="jobs-title"><div class="section-heading"><h2 id="jobs-title"><span>02</span> 任务记录</h2><button id="refresh" class="text-button" disabled>刷新</button></div><p class="status-note">“已提交”表示已交给 Windows 打印队列，不代表已经出纸。</p><div id="jobs" aria-live="polite"><div class="empty"><span aria-hidden="true">—</span><p>连接后查看最近的打印任务</p></div></div></section>
+    </div>
+    <footer><span>LOCAL NETWORK / 局域网打印</span><span id="mode">PDF → WINDOWS → PAPER</span></footer>
+  </main>
+</body>
+</html>

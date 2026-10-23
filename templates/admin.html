@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>纸间 · 本机管理</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/admin.css"><script src="/static/admin.js" defer></script></head>
+<body><main>
+<header class="masthead"><a class="wordmark" href="/">纸间<span>ADMIN DESK</span></a><span class="tag">仅限服务端本机</span></header>
+<section class="intro"><p class="eyebrow">ACCESS & CONNECTIONS</p><h1>每一台设备，都有凭证。</h1><p>为客户端签发独立令牌，在这里查看连接或撤销访问权限。</p></section>
+<section class="access"><form id="key-form"><label for="device-name">设备名称</label><div class="access-input"><input id="device-name" maxlength="80" placeholder="例如：办公室 Mac" required><button id="generate" disabled>生成访问令牌</button></div></form><p>完整令牌仅显示一次，复制后隐藏。丢失后需撤销旧令牌并重新生成。</p></section>
+<section id="secret-panel" class="secret-panel" hidden aria-label="新生成的令牌"><h2>请现在保存令牌</h2><p>将令牌粘贴到对应客户端的连接页面。</p><label for="secret">完整令牌（仅此一次）</label><input id="secret" readonly autocomplete="off" spellcheck="false"><div class="secret-actions"><button id="copy" type="button">复制并隐藏</button><button id="hide" type="button" class="text-button">关闭，不再显示</button></div></section>
+<p id="admin-feedback" class="feedback" role="status" aria-live="polite">正在连接本机管理服务…</p>
+<section><div class="section-heading"><h2><span>01</span> 客户端连接</h2><button id="admin-refresh" class="text-button">刷新</button></div><p class="status-note">60 秒内收到心跳视为在线。关闭页面或网络断开后，最迟约一分钟显示离线；后台休眠也可能显示离线。</p><div id="clients" class="admin-list"></div></section>
+<section class="key-section"><div class="section-heading"><h2><span>02</span> 访问令牌</h2></div><p class="status-note">撤销立即阻止后续访问，已经提交的打印任务仍会继续执行。</p><div id="keys" class="admin-list"></div></section>
+<footer><span>LOCAL ADMINISTRATION</span><span>仅保存令牌哈希 · 无法找回完整令牌</span></footer>
+</main></body></html>
